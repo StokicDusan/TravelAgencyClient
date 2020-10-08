@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pozadina"
+    android:padding="15dp"
+    tools:context=".activity.PocetniEkran">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/labelPozdrav"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/welcome"
+                android:textAllCaps="false"
+                android:textColor="#040404"
+                android:textSize="30sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/labelOdabir"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:text="@string/odabir"
+                android:textAllCaps="false"
+                android:textColor="#040404"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/spinnerVrste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/back"
+                android:paddingLeft="5dp" />
+
+            <Button
+                android:id="@+id/buttonSacuvaj"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="@string/odabirPutovanja" />
+
+            <Button
+                android:id="@+id/buttonRecreate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/recreate" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

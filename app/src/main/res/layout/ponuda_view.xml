@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/pozadina">
+
+    <ImageView
+        android:id="@+id/imageIkonica"
+        android:layout_width="70dp"
+        android:layout_height="80dp"
+        android:layout_margin="10dp"
+        android:layout_gravity="center_vertical"
+        app:srcCompat="@drawable/icon_destinacija" />
+
+    <TextView
+        android:id="@+id/textPonuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:lines="2"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/imageIkonica"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/textOpis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textPonuda"
+        android:layout_alignBottom="@+id/imageIkonica"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:requiresFadingEdge="horizontal"
+        android:fadingEdgeLength="18dp"
+        android:layout_toRightOf="@+id/imageIkonica" />
+
+    <View
+        android:id="@+id/linija"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_alignBottom="@id/textOpis"
+        android:layout_marginBottom="-10dp"
+        android:background="@android:color/darker_gray" />
+
+</RelativeLayout>

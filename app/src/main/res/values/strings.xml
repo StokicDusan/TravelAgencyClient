@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Zadatak2</string>
+    <string name="welcome">Dobrodošli</string>
+    <string name="odabir">Za nastavak odaberite
+    vrstu putovanja na koju želite da idete</string>
+    <string name="odabirPutovanja">Odaberi vrstu putovanja</string>
+    <string name="noPonuda">Nema dostupnih ponuda</string>
+    <string name="errornetwork">Check your internet connection!</string>
+    <string name="odabirDrzave">Odaberite državu u kojoj želite da putujete</string>
+    <string name="odabirGrada">Odaberite grad u koji želite da putujete</string>
+    <string name="naziv">Naziv</string>
+    <string name="foto_galerija">Foto Galerija</string>
+    <string name="opis">Opis</string>
+    <string name="mesto">Mesto</string>
+    <string name="drzava">Drzava</string>
+    <string name="nedostupno">Turisticka ponuda nije dostupna!!</string>
+    <string name="nemaGalerije">Galerija nije pronadjena</string>
+    <string name="nonerrornetwork">Good internet connection</string>
+    <string name="recreate">resetuj konekciju</string>
+
+</resources>
