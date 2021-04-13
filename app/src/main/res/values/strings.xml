@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Zadatak2</string>
+    <string name="app_name">TravelAgencyClient</string>
     <string name="welcome">Dobrodošli</string>
     <string name="odabir">Za nastavak odaberite
     vrstu putovanja na koju želite da idete</string>
@@ -17,5 +17,4 @@
     <string name="nemaGalerije">Galerija nije pronadjena</string>
     <string name="nonerrornetwork">Good internet connection</string>
     <string name="recreate">resetuj konekciju</string>
-
 </resources>

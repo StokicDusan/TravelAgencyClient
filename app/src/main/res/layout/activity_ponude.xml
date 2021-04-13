@@ -44,50 +44,50 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/labelDrzave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="50dp"
-            android:fontFamily="monospace"
-            android:includeFontPadding="false"
-            android:text="@string/odabirDrzave"
-            android:textAllCaps="false"
-            android:textColor="#040404"
-            android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/labelDrzave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="50dp"
+                    android:fontFamily="monospace"
+                    android:includeFontPadding="false"
+                    android:text="@string/odabirDrzave"
+                    android:textAllCaps="false"
+                    android:textColor="#040404"
+                    android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinnerDrzave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:paddingLeft="5dp" />
-        <TextView
-            android:id="@+id/labelGradovi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="50dp"
-            android:fontFamily="monospace"
-            android:includeFontPadding="false"
-            android:text="@string/odabirGrada"
-            android:textAllCaps="false"
-            android:textColor="#040404"
-            android:textSize="18sp" />
+                <Spinner
+                    android:id="@+id/spinnerDrzave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:paddingLeft="5dp" />
+                <TextView
+                    android:id="@+id/labelGradovi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="50dp"
+                    android:fontFamily="monospace"
+                    android:includeFontPadding="false"
+                    android:text="@string/odabirGrada"
+                    android:textAllCaps="false"
+                    android:textColor="#040404"
+                    android:textSize="18sp" />
 
-        <Spinner
-            android:id="@+id/spinnerGradovi"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/back"
-            android:paddingLeft="5dp" />
+                <Spinner
+                    android:id="@+id/spinnerGradovi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back"
+                    android:paddingLeft="5dp" />
 
-        <LinearLayout
-            android:id="@+id/ponudaScrollView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
+                <LinearLayout
+                    android:id="@+id/ponudaScrollView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
