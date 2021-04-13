@@ -1,4 +1,4 @@
-package com.etf.RMS.zadatak2.activity;
+package com.etf.RMS.TravelAgencyClien.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,12 +16,12 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.etf.RMS.zadatak2.R;
-import com.etf.RMS.zadatak2.api.ApiClient;
-import com.etf.RMS.zadatak2.api.ApiInterface;
-import com.etf.RMS.zadatak2.data.Ponuda;
-import com.etf.RMS.zadatak2.data.PonudaSlika;
-import com.etf.RMS.zadatak2.dialog.LoadDialog;
+import com.etf.RMS.TravelAgencyClien.R;
+import com.etf.RMS.TravelAgencyClien.api.ApiClient;
+import com.etf.RMS.TravelAgencyClien.api.ApiInterface;
+import com.etf.RMS.TravelAgencyClien.data.Ponuda;
+import com.etf.RMS.TravelAgencyClien.data.PonudaSlika;
+import com.etf.RMS.TravelAgencyClien.dialog.LoadDialog;
 
 import java.net.HttpURLConnection;
 import java.util.List;

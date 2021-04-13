@@ -1,4 +1,4 @@
-package com.etf.RMS.zadatak2.dialog;
+package com.etf.RMS.TravelAgencyClien.dialog;
 
 import android.app.Dialog;
 import android.content.Context;

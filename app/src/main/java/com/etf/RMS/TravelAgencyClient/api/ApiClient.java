@@ -1,4 +1,4 @@
-package com.etf.RMS.zadatak2.api;
+package com.etf.RMS.TravelAgencyClien.api;
 
 import com.google.gson.GsonBuilder;
 

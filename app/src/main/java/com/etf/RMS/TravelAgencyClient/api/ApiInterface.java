@@ -1,12 +1,11 @@
-package com.etf.RMS.zadatak2.api;
+package com.etf.RMS.TravelAgencyClien.api;
 
-import com.etf.RMS.zadatak2.data.Aranzman;
-import com.etf.RMS.zadatak2.data.Korisnik;
-import com.etf.RMS.zadatak2.data.Ponuda;
-import com.etf.RMS.zadatak2.data.PonudaSlika;
-import com.etf.RMS.zadatak2.data.PonudaVrsta;
+import com.etf.RMS.TravelAgencyClien.data.Aranzman;
+import com.etf.RMS.TravelAgencyClien.data.Korisnik;
+import com.etf.RMS.TravelAgencyClien.data.Ponuda;
+import com.etf.RMS.TravelAgencyClien.data.PonudaSlika;
+import com.etf.RMS.TravelAgencyClien.data.PonudaVrsta;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

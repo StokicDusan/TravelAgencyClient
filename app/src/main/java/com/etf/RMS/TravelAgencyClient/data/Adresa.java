@@ -1,4 +1,4 @@
-package com.etf.RMS.zadatak2.data;
+package com.etf.RMS.TravelAgencyClien.data;
 
 import java.io.Serializable;
 

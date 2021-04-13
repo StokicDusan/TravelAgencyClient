@@ -1,4 +1,4 @@
-package com.etf.RMS.zadatak2;
+package com.etf.RMS.TravelAgencyClien;
 
 import org.junit.Test;
 
