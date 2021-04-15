@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.etf.zadatak2.R;
 import com.etf.zadatak2.api.ApiClient;
 import com.etf.zadatak2.api.ApiInterface;
-import com.etf.zadatak2.data.PonudaVrsta;
+import com.etf.zadatak2.data.OfferType;
 import com.etf.zadatak2.dialog.LoadDialog;
 
 import java.net.HttpURLConnection;
@@ -24,7 +24,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PocetniEkran extends AppCompatActivity implements View.OnClickListener {
+public class StartScreen extends AppCompatActivity implements View.OnClickListener {
     private Spinner ponudaVrsta;
     private ArrayList<String> listaPonudaVrsta;
 
@@ -33,7 +33,7 @@ public class PocetniEkran extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pocetni_ekran);
+        setContentView(R.layout.activity_start_screen);
         apiInterface = ApiClient.getClient(ApiInterface.class);
         initUiComponents();
     }
@@ -68,24 +68,24 @@ public class PocetniEkran extends AppCompatActivity implements View.OnClickListe
     }
 
     private void getPonudaVrsta() {
-        Call<List<PonudaVrsta>> callLanguage = apiInterface.getPonudaVrsta();
-        final Dialog dialog = LoadDialog.loadDialog(PocetniEkran.this);
+        Call<List<OfferType>> callLanguage = apiInterface.getOfferType();
+        final Dialog dialog = LoadDialog.loadDialog(StartScreen.this);
         dialog.show();
-        callLanguage.enqueue(new Callback<List<PonudaVrsta>>() {
+        callLanguage.enqueue(new Callback<List<OfferType>>() {
             @Override
-            public void onResponse(Call<List<PonudaVrsta>> call, Response<List<PonudaVrsta>> response) {
+            public void onResponse(Call<List<OfferType>> call, Response<List<OfferType>> response) {
                 if (dialog.isShowing()) dialog.dismiss();
                 if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
-                    for (PonudaVrsta temp : response.body()) {
-                        listaPonudaVrsta.add(temp.getNaziv());
+                    for (OfferType temp : response.body()) {
+                        listaPonudaVrsta.add(temp.getName());
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<PonudaVrsta>> call, Throwable t) {
+            public void onFailure(Call<List<OfferType>> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(PocetniEkran.this, R.string.errornetwork, Toast.LENGTH_SHORT).show();
+                Toast.makeText(StartScreen.this, R.string.errorNetwork, Toast.LENGTH_SHORT).show();
                 if (dialog.isShowing())
                     dialog.dismiss();
             }

@@ -19,8 +19,8 @@ import android.widget.Toast;
 import com.etf.zadatak2.R;
 import com.etf.zadatak2.api.ApiClient;
 import com.etf.zadatak2.api.ApiInterface;
-import com.etf.zadatak2.data.Ponuda;
-import com.etf.zadatak2.data.PonudaSlika;
+import com.etf.zadatak2.data.Offer;
+import com.etf.zadatak2.data.OfferPicture;
 import com.etf.zadatak2.dialog.LoadDialog;
 
 import java.net.HttpURLConnection;
@@ -90,28 +90,28 @@ public class DetaljiPonudeActivity extends AppCompatActivity {
     }
 
     private void getPonudaById(int id) {
-        Call<Ponuda> callLanguage = apiInterface.getPonudaById(id);
+        Call<Offer> callLanguage = apiInterface.getOfferById(id);
         final Dialog dialog = LoadDialog.loadDialog(DetaljiPonudeActivity.this);
         dialog.show();
-        callLanguage.enqueue(new Callback<Ponuda>() {
+        callLanguage.enqueue(new Callback<Offer>() {
             @Override
-            public void onResponse(Call<Ponuda> call, Response<Ponuda> response) {
+            public void onResponse(Call<Offer> call, Response<Offer> response) {
                 if (dialog.isShowing())
                     dialog.dismiss();
                 if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
-                    labelFotoGalerija.setText(String.format("%s Galerija", response.body().getNaziv()));
-                    labelNaziv.setText(response.body().getNaziv());
-                    labelDrzava.setText(String.format("Drzava: %s", response.body().getDrzava()));
-                    labelMesto.setText(String.format("Mesto: %s", response.body().getMesto()));
-                    labelOpis.setText(response.body().getOpis());
-                    ponudaVrsta = response.body().getPonuda_vrsta().getNaziv();
+                    labelFotoGalerija.setText(String.format("%s Galerija", response.body().getName()));
+                    labelNaziv.setText(response.body().getName());
+                    labelDrzava.setText(String.format("Drzava: %s", response.body().getCountry()));
+                    labelMesto.setText(String.format("Mesto: %s", response.body().getLocation()));
+                    labelOpis.setText(response.body().getDescription());
+                    ponudaVrsta = response.body().getOffer_type().getName();
                 }
             }
 
             @Override
-            public void onFailure(Call<Ponuda> call, Throwable t) {
+            public void onFailure(Call<Offer> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(DetaljiPonudeActivity.this, R.string.errornetwork, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetaljiPonudeActivity.this, R.string.errorNetwork, Toast.LENGTH_SHORT).show();
                 if (dialog.isShowing())
                     dialog.dismiss();
             }
@@ -119,47 +119,47 @@ public class DetaljiPonudeActivity extends AppCompatActivity {
     }
 
     private void getPonudaSlikaByPonudaId(int id) {
-        Call<List<PonudaSlika>> callLanguage = apiInterface.getPonudaSlikaByPonudaId(id);
+        Call<List<OfferPicture>> callLanguage = apiInterface.getOfferPictureByOfferId(id);
         final Dialog dialog = LoadDialog.loadDialog(DetaljiPonudeActivity.this);
         dialog.show();
-        callLanguage.enqueue(new Callback<List<PonudaSlika>>() {
+        callLanguage.enqueue(new Callback<List<OfferPicture>>() {
             @Override
-            public void onResponse(Call<List<PonudaSlika>> call, Response<List<PonudaSlika>> response) {
+            public void onResponse(Call<List<OfferPicture>> call, Response<List<OfferPicture>> response) {
                 if (dialog.isShowing())
                     dialog.dismiss();
                 if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
                     if (response.body().isEmpty()) {
                         labelFotoGalerija.setText(String.format("Galerija je prazna"));
                     } else {
-                        for (PonudaSlika ponudaSlika : response.body()) {
+                        for (OfferPicture offerPicture : response.body()) {
                             horizontScroll = (LinearLayout) findViewById(R.id.horizontScroll);
                             inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-                            RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.slika_view, null);
-                            ((TextView) item.findViewById(R.id.textSlika)).setText(ponudaSlika.getKratak_opis());
-                            String naziv = ponudaSlika.getNaziv();
+                            RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.picture_view, null);
+                            ((TextView) item.findViewById(R.id.textPicture)).setText(offerPicture.getShort_description());
+                            String naziv = offerPicture.getName();
                             naziv = naziv.substring(0, naziv.lastIndexOf('.'));
                             String uri = "@drawable/" + naziv;
                             int imageResource = getResources().getIdentifier(uri, null, getPackageName());
                             Drawable imageDrawable = getResources().getDrawable(imageResource);
-                            ((ImageView) item.findViewById(R.id.imageViewSlika)).setImageDrawable(imageDrawable);
+                            ((ImageView) item.findViewById(R.id.imageViewPicture)).setImageDrawable(imageDrawable);
 
                             horizontScroll.addView(item);
                         }
                     }
 
                 } else {
-                    RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.slika_view, null);
-                    ((TextView) item.findViewById(R.id.textSlika)).setText(R.string.nemaGalerije);
-                    ((ImageView) item.findViewById(R.id.imageViewSlika)).setImageResource(R.drawable.image_001);
+                    RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.picture_view, null);
+                    ((TextView) item.findViewById(R.id.textPicture)).setText(R.string.noGallery);
+                    ((ImageView) item.findViewById(R.id.imageViewPicture)).setImageResource(R.drawable.image_001);
                     horizontScroll.addView(item);
                 }
             }
 
             @Override
-            public void onFailure(Call<List<PonudaSlika>> call, Throwable t) {
+            public void onFailure(Call<List<OfferPicture>> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(DetaljiPonudeActivity.this, R.string.errornetwork, Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetaljiPonudeActivity.this, R.string.errorNetwork, Toast.LENGTH_SHORT).show();
                 if (dialog.isShowing())
                     dialog.dismiss();
             }

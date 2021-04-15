@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class Ponuda implements Serializable {
 
     private int ponuda_id;
-    private PonudaVrsta ponuda_vrsta;
+    private OfferType ponuda_vrsta;
     private String drzava;
     private String mesto;
     private String naziv;
@@ -16,7 +16,7 @@ public class Ponuda implements Serializable {
     public Ponuda() {
     }
 
-    public Ponuda(int ponuda_id, PonudaVrsta ponuda_vrsta, String drzava, String mesto, String opis, Boolean aktivna) {
+    public Ponuda(int ponuda_id, OfferType ponuda_vrsta, String drzava, String mesto, String opis, Boolean aktivna) {
         this.ponuda_id = ponuda_id;
         this.ponuda_vrsta = ponuda_vrsta;
         this.drzava = drzava;
@@ -25,7 +25,7 @@ public class Ponuda implements Serializable {
         this.aktivna = aktivna;
     }
 
-    public Ponuda(PonudaVrsta ponuda_vrsta, String drzava, String mesto, String opis, Boolean aktivna) {
+    public Ponuda(OfferType ponuda_vrsta, String drzava, String mesto, String opis, Boolean aktivna) {
         this.ponuda_vrsta = ponuda_vrsta;
         this.drzava = drzava;
         this.mesto = mesto;
@@ -41,11 +41,11 @@ public class Ponuda implements Serializable {
         this.ponuda_id = ponuda_id;
     }
 
-    public PonudaVrsta getPonuda_vrsta() {
+    public OfferType getPonuda_vrsta() {
         return ponuda_vrsta;
     }
 
-    public void setPonuda_vrsta(PonudaVrsta ponuda_vrsta) {
+    public void setPonuda_vrsta(OfferType ponuda_vrsta) {
         this.ponuda_vrsta = ponuda_vrsta;
     }
 
