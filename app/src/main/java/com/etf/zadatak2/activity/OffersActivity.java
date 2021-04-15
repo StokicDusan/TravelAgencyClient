@@ -22,7 +22,7 @@ import android.widget.Toast;
 import com.etf.zadatak2.R;
 import com.etf.zadatak2.api.ApiClient;
 import com.etf.zadatak2.api.ApiInterface;
-import com.etf.zadatak2.data.Ponuda;
+import com.etf.zadatak2.data.Offer;
 import com.etf.zadatak2.dialog.LoadDialog;
 
 import java.net.HttpURLConnection;
@@ -41,8 +41,8 @@ public class PonudeActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     private ArrayList<String> listaPonudaDrzave;
     private ArrayList<String> listaPonudaGradovi;
-    private ArrayList<Ponuda> listaPonuda;
-    private ArrayList<Ponuda> listaZaPrikaz;
+    private ArrayList<Offer> listaOffer;
+    private ArrayList<Offer> listaZaPrikaz;
     private Spinner ponudaGradovi;
     private Spinner ponudaDrzave;
 
@@ -51,7 +51,7 @@ public class PonudeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ponude);
         listaZaPrikaz = new ArrayList<>();
-        listaPonuda = new ArrayList<>();
+        listaOffer = new ArrayList<>();
         listaPonudaDrzave = new ArrayList<>();
         listaPonudaGradovi = new ArrayList<>();
         listaPonudaDrzave.add("izaberite drzavu");
@@ -83,7 +83,7 @@ public class PonudeActivity extends AppCompatActivity {
         ((ImageButton) findViewById(R.id.imageButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(PonudeActivity.this, PocetniEkran.class);
+                Intent i = new Intent(PonudeActivity.this, StartScreenActivity.class);
                 startActivity(i);
             }
         });
@@ -98,10 +98,10 @@ public class PonudeActivity extends AppCompatActivity {
                     listaPonudaGradovi.add("izaberite grad");
                     ponudaGradovi.setSelection(0);
                     String selectedItemText = (String) parent.getItemAtPosition(position);
-                    for (Ponuda temp : listaPonuda) {
-                        if (selectedItemText.equals(temp.getDrzava())) {
-                            if (!listaPonudaGradovi.contains(temp.getMesto())) {
-                                listaPonudaGradovi.add(temp.getMesto());
+                    for (Offer temp : listaOffer) {
+                        if (selectedItemText.equals(temp.getCountry())) {
+                            if (!listaPonudaGradovi.contains(temp.getLocation())) {
+                                listaPonudaGradovi.add(temp.getLocation());
                             }
                         }
                     }
@@ -114,7 +114,7 @@ public class PonudeActivity extends AppCompatActivity {
             }
         });
 
-        // Inflejtovanje Ponuda u odnosu na Grad koji je izabran
+        // Inflejtovanje Offer u odnosu na Grad koji je izabran
         ponudaGradovi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -136,29 +136,29 @@ public class PonudeActivity extends AppCompatActivity {
 
 
     private void getPonuda(String ponuda) {
-        Call<List<Ponuda>> callLanguage = apiInterface.getPonudaByVrsta(ponuda);
+        Call<List<Offer>> callLanguage = apiInterface.getOfferByType(ponuda);
         final Dialog dialog = LoadDialog.loadDialog(PonudeActivity.this);
         dialog.show();
-        callLanguage.enqueue(new Callback<List<Ponuda>>() {
+        callLanguage.enqueue(new Callback<List<Offer>>() {
             @Override
-            public void onResponse(Call<List<Ponuda>> call, Response<List<Ponuda>> response) {
+            public void onResponse(Call<List<Offer>> call, Response<List<Offer>> response) {
                 if (dialog.isShowing()) dialog.dismiss();
                 if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
-                    for (Ponuda temp : response.body()) {
-                        if (!listaPonudaDrzave.contains(temp.getDrzava())) {
-                            listaPonudaDrzave.add(temp.getDrzava());
+                    for (Offer temp : response.body()) {
+                        if (!listaPonudaDrzave.contains(temp.getCountry())) {
+                            listaPonudaDrzave.add(temp.getCountry());
                         }
-                        if (!listaPonuda.contains(temp)) {
-                            listaPonuda.add(temp);
+                        if (!listaOffer.contains(temp)) {
+                            listaOffer.add(temp);
                         }
                     }
                 }
             }
 
             @Override
-            public void onFailure(Call<List<Ponuda>> call, Throwable t) {
+            public void onFailure(Call<List<Offer>> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(PonudeActivity.this, R.string.errornetwork, Toast.LENGTH_SHORT).show();
+                Toast.makeText(PonudeActivity.this, R.string.errorNetwork, Toast.LENGTH_SHORT).show();
                 if (dialog.isShowing())
                     dialog.dismiss();
             }
@@ -172,22 +172,22 @@ public class PonudeActivity extends AppCompatActivity {
         mainScrollLayout.removeAllViews();
 
         if (mesto != null) {
-            for (Ponuda ponuda : listaPonuda) {
-                if (ponuda.getMesto().equals(mesto)) listaZaPrikaz.add(ponuda);
+            for (Offer offer : listaOffer) {
+                if (offer.getLocation().equals(mesto)) listaZaPrikaz.add(offer);
             }
         }
 
-        for (final Ponuda ponuda : listaZaPrikaz) {
+        for (final Offer offer : listaZaPrikaz) {
             //RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.my_view, null);
-            int id = ponuda.getPonuda_id();
+            int id = offer.getOffer_id();
 
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.ponuda_view, mainScrollLayout, false);
 
-            String naslov = ponuda.getMesto() + " - " + ponuda.getNaziv();
+            String naslov = offer.getLocation() + " - " + offer.getName();
             ((TextView) item.findViewById(R.id.textPonuda)).setText(naslov);
-            if (ponuda.getAktivna()) {
-                ((TextView) item.findViewById(R.id.textOpis)).setText(ponuda.getOpis());
+            if (offer.getActive()) {
+                ((TextView) item.findViewById(R.id.textOpis)).setText(offer.getDescription());
                 item.setClickable(true);
                 final int finalId = id;
                 item.setOnClickListener(new View.OnClickListener() {
@@ -202,7 +202,7 @@ public class PonudeActivity extends AppCompatActivity {
                     }
                 });
             } else {
-                ((TextView) item.findViewById(R.id.textOpis)).setText(R.string.nedostupno);
+                ((TextView) item.findViewById(R.id.textOpis)).setText(R.string.unavailable);
                 ((TextView) item.findViewById(R.id.textOpis)).setTextColor(Color.RED);
             }
             mainScrollLayout.addView(item);
@@ -216,7 +216,7 @@ public class PonudeActivity extends AppCompatActivity {
         if ((requestCode == request_code) &&
                 (resultCode == RESULT_OK)) {
             listaPonudaGradovi.clear();
-            listaPonuda.clear();
+            listaOffer.clear();
             listaZaPrikaz.clear();
             ponudaDrzave.setSelection(0);
             listaPonudaGradovi.add("izaberite grad");

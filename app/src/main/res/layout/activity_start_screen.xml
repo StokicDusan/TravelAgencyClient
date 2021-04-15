@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pozadina"
+    android:background="@color/background"
     android:padding="15dp"
     tools:context=".activity.PocetniEkran">
 
@@ -41,7 +41,7 @@
                 android:fontFamily="monospace"
                 android:gravity="center"
                 android:includeFontPadding="false"
-                android:text="@string/odabir"
+                android:text="@string/choice"
                 android:textAllCaps="false"
                 android:textColor="#040404"
                 android:textSize="18sp"
@@ -62,7 +62,7 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginBottom="20dp"
                 android:gravity="center"
-                android:text="@string/odabirPutovanja" />
+                android:text="@string/chooseTravel" />
 
             <Button
                 android:id="@+id/buttonRecreate"

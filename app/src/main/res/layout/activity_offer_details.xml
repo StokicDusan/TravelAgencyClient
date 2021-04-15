@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pozadina"
+    android:background="@color/background"
     android:padding="15dp"
     tools:context=".activity.DetaljiPonudeActivity">
 
@@ -52,7 +52,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:includeFontPadding="false"
-                    android:text="@string/foto_galerija"
+                    android:text="@string/photoGallery"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
@@ -82,7 +82,7 @@
                     android:fontFamily="monospace"
                     android:gravity="center"
                     android:includeFontPadding="false"
-                    android:text="@string/naziv"
+                    android:text="@string/name"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
@@ -100,7 +100,7 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="monospace"
                     android:includeFontPadding="false"
-                    android:text="@string/drzava"
+                    android:text="@string/country"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
@@ -112,7 +112,7 @@
                     android:layout_marginTop="5dp"
                     android:fontFamily="monospace"
                     android:includeFontPadding="false"
-                    android:text="@string/mesto"
+                    android:text="@string/location"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
@@ -125,7 +125,7 @@
                     android:fontFamily="monospace"
                     android:includeFontPadding="false"
                     android:singleLine="false"
-                    android:text="@string/opis"
+                    android:text="@string/description"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
