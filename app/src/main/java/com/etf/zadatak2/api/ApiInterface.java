@@ -1,10 +1,10 @@
 package com.etf.zadatak2.api;
 
-import com.etf.zadatak2.data.Aranzman;
-import com.etf.zadatak2.data.Korisnik;
-import com.etf.zadatak2.data.Ponuda;
-import com.etf.zadatak2.data.PonudaSlika;
-import com.etf.zadatak2.data.PonudaVrsta;
+import com.etf.zadatak2.data.Arrangement;
+import com.etf.zadatak2.data.Customer;
+import com.etf.zadatak2.data.Offer;
+import com.etf.zadatak2.data.OfferPicture;
+import com.etf.zadatak2.data.OfferType;
 
 import java.util.List;
 
@@ -18,60 +18,60 @@ import retrofit2.http.Path;
 
 public interface ApiInterface {
 
-    @GET("ponuda/{ponuda_id}")
-    Call<Ponuda> getPonudaById(@Path("ponuda_id") int ponuda_id);
+    @GET("offer/{offer_id}")
+    Call<Offer> getOfferById(@Path("offer_id") int offer_id);
 
-    @GET("ponuda/vrsta_ponude/{vrsta}")
-    Call<List<Ponuda>> getPonudaByVrsta(@Path("vrsta") String vrsta);
+    @GET("offer/type_of_offer/{type}")
+    Call<List<Offer>> getOfferByType(@Path("type") String type);
 
-    @GET("ponuda/slika/ponuda/{ponuda_id}")
-    Call<List<PonudaSlika>> getPonudaSlikaByPonudaId(@Path("ponuda_id") int ponuda_id);
+    @GET("offer/picture/offer/{offer_id}")
+    Call<List<OfferPicture>> getOfferPictureByOfferId(@Path("offer_id") int offer_id);
 
-    @GET("ponuda/vrsta/")
-    Call<List<PonudaVrsta>> getPonudaVrsta();
+    @GET("offer/type/")
+    Call<List<OfferType>> getOfferType();
 
 
-    @GET("ponuda/drzava/{drzava}")
-    Call<List<Ponuda>> getPonudaByDrzava(@Path("drzava") String drzava);
+    @GET("offer/country/{country}")
+    Call<List<Offer>> getOfferByCountry(@Path("country") String country);
 
-    @GET("ponuda/drzava/{drzava}/{opis}")
-    Call<List<Ponuda>> getPonudaByDrzava(@Path("drzava") String drzava, @Path("opis") String opis);
+    @GET("offer/country/{country}/{description}")
+    Call<List<Offer>> getOfferByCountry(@Path("country") String country, @Path("description") String description);
 
-    @GET("ponuda/mesto/{mesto}")
-    Call<List<Ponuda>> getPonudaByMesto(@Path("mesto") String mesto);
+    @GET("offer/location/{location}")
+    Call<List<Offer>> getOfferByLocation(@Path("location") String location);
 
-    @POST("ponuda")
-    Call<Void> addPonuda(@Body Ponuda ponuda);
+    @POST("offer")
+    Call<Void> addOffer(@Body Offer offer);
 
-    @POST("ponuda/vrsta")
-    Call<Void> addPonudaVrsta(@Body PonudaVrsta ponuda_vrsta);
+    @POST("offer/type")
+    Call<Void> addOfferType(@Body OfferType offerType);
 
-    @POST("ponuda/slika")
-    Call<Void> addPonudaSlika(@Body PonudaSlika ponuda_slika);
+    @POST("offer/picture")
+    Call<Void> addOfferPicture(@Body OfferPicture offerPicture);
 
-    @PUT("ponuda")
-    Call<Void> updatePonuda(@Body Ponuda ponuda);
+    @PUT("offer")
+    Call<Void> updateOffer(@Body Offer offer);
 
-    @DELETE("ponuda/{ponuda_id}")
-    Call<Void> deletePonuda(@Path("ponuda_id") int ponuda_id);
+    @DELETE("offer/{offer_id}")
+    Call<Void> deleteOffer(@Path("offer_id") int offer_id);
 
-    @GET("korisnik/{korisnik_id}")
-    Call<Korisnik> getKorisnikById(@Path("korisnik_id") int korisnik_id);
+    @GET("customer/{customer_id}")
+    Call<Customer> getCustomerById(@Path("customer_id") int customer_id);
 
-    @POST("korisnik")
-    Call<Void> addKorisnik(@Body Korisnik korisnik);
+    @POST("customer")
+    Call<Void> addCustomer(@Body Customer customer);
 
-    @PUT("korisnik")
-    Call<Void> updateKorisnik(@Body Korisnik korisnik);
+    @PUT("customer")
+    Call<Void> updateCustomer(@Body Customer customer);
 
-    @DELETE("korisnik/{korisnik_id}")
-    Call<Void> deleteKorisnik(@Path("korisnik_id") int korisnik_id);
+    @DELETE("customer/{customer_id}")
+    Call<Void> deleteCustomer(@Path("customer_id") int customer_id);
 
-    @GET("aranzman")
-    Call<List<Aranzman>> getAranzman();
+    @GET("arrangement")
+    Call<List<Arrangement>> getArrangement();
 
-    @POST("aranzman")
-    Call<Void> makeAranzman(@Body Aranzman aranzman);
+    @POST("arrangement")
+    Call<Void> makeArrangement(@Body Arrangement arrangement);
 
 
 }
