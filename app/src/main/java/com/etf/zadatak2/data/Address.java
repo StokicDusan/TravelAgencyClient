@@ -2,80 +2,80 @@ package com.etf.zadatak2.data;
 
 import java.io.Serializable;
 
-public class Adresa implements Serializable {
+public class Address implements Serializable {
 
-    private int adresa_id;
-    private String drzava;
-    private String grad;
-    private String ulica;
-    private int broj;
+    private int address_id;
+    private String country;
+    private String city;
+    private String street;
+    private int number;
 
-    public Adresa() {
+    public Address() {
     }
 
-    public Adresa(int adresa_id, String drzava, String grad, String ulica, int broj) {
-        this.adresa_id = adresa_id;
-        this.drzava = drzava;
-        this.grad = grad;
-        this.ulica = ulica;
-        this.broj = broj;
+    public Address(int address_id, String country, String city, String street, int number) {
+        this.address_id = address_id;
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.number = number;
     }
 
-    public Adresa(String drzava, String grad, String ulica, int broj) {
-        this.drzava = drzava;
-        this.grad = grad;
-        this.ulica = ulica;
-        this.broj = broj;
+    public Address(String country, String city, String street, int number) {
+        this.country = country;
+        this.city = city;
+        this.street = street;
+        this.number = number;
     }
 
-    public int getAdresa_id() {
-        return adresa_id;
+    public int getAddress_id() {
+        return address_id;
     }
 
-    public void setAdresa_id(int adresa_id) {
-        this.adresa_id = adresa_id;
+    public void setAddress_id(int address_id) {
+        this.address_id = address_id;
     }
 
-    public String getDrzava() {
-        return drzava;
+    public String getCountry() {
+        return country;
     }
 
-    public void setDrzava(String drzava) {
-        this.drzava = drzava;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getGrad() {
-        return grad;
+    public String getCity() {
+        return city;
     }
 
-    public void setGrad(String grad) {
-        this.grad = grad;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public String getUlica() {
-        return ulica;
+    public String getStreet() {
+        return street;
     }
 
-    public void setUlica(String ulica) {
-        this.ulica = ulica;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
-    public int getBroj() {
-        return broj;
+    public int getNumber() {
+        return number;
     }
 
-    public void setBroj(int broj) {
-        this.broj = broj;
+    public void setNumber(int number) {
+        this.number = number;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Adresa{adresa_id=").append(adresa_id);
-        sb.append(", drzava=").append(drzava);
-        sb.append(", grad=").append(grad);
-        sb.append(", ulica=").append(ulica);
-        sb.append(", broj=").append(broj);
+        sb.append("Address{address_id=").append(address_id);
+        sb.append(", country=").append(country);
+        sb.append(", city=").append(city);
+        sb.append(", street=").append(street);
+        sb.append(", number=").append(number);
         sb.append('}');
         return sb.toString();
     }

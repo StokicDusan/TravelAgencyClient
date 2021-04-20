@@ -3,101 +3,104 @@ package com.etf.zadatak2.data;
 import java.io.Serializable;
 
 
-public class Ponuda implements Serializable {
+public class Offer implements Serializable {
 
-    private int ponuda_id;
-    private OfferType ponuda_vrsta;
-    private String drzava;
-    private String mesto;
-    private String naziv;
-    private String opis;
-    private Boolean aktivna;
+    private int offer_id;
+    private OfferType offer_type;
+    private String country;
+    private String location;
+    private String name;
+    private String description;
+    private Boolean active;
 
-    public Ponuda() {
+    public Offer() {
     }
 
-    public Ponuda(int ponuda_id, OfferType ponuda_vrsta, String drzava, String mesto, String opis, Boolean aktivna) {
-        this.ponuda_id = ponuda_id;
-        this.ponuda_vrsta = ponuda_vrsta;
-        this.drzava = drzava;
-        this.mesto = mesto;
-        this.opis = opis;
-        this.aktivna = aktivna;
+    public Offer(int offer_id, OfferType offer_type, String country, String location, String name, String description, Boolean active) {
+        this.offer_id = offer_id;
+        this.offer_type = offer_type;
+        this.country = country;
+        this.location = location;
+        this.name = name;
+        this.description = description;
+        this.active = active;
     }
 
-    public Ponuda(OfferType ponuda_vrsta, String drzava, String mesto, String opis, Boolean aktivna) {
-        this.ponuda_vrsta = ponuda_vrsta;
-        this.drzava = drzava;
-        this.mesto = mesto;
-        this.opis = opis;
-        this.aktivna = aktivna;
+    public Offer(OfferType offer_type, String country, String location, String name, String description, Boolean active) {
+        this.offer_type = offer_type;
+        this.country = country;
+        this.location = location;
+        this.name = name;
+        this.description = description;
+        this.active = active;
     }
 
-    public int getPonuda_id() {
-        return ponuda_id;
+    public int getOffer_id() {
+        return offer_id;
     }
 
-    public void setPonuda_id(int ponuda_id) {
-        this.ponuda_id = ponuda_id;
+    public void setOffer_id(int offer_id) {
+        this.offer_id = offer_id;
     }
 
-    public OfferType getPonuda_vrsta() {
-        return ponuda_vrsta;
+    public OfferType getOffer_type() {
+        return offer_type;
     }
 
-    public void setPonuda_vrsta(OfferType ponuda_vrsta) {
-        this.ponuda_vrsta = ponuda_vrsta;
+    public void setOffer_type(OfferType offer_type) {
+        this.offer_type = offer_type;
     }
 
-    public String getDrzava() {
-        return drzava;
+    public String getCountry() {
+        return country;
     }
 
-    public void setDrzava(String drzava) {
-        this.drzava = drzava;
+    public void setCountry(String country) {
+        this.country = country;
     }
 
-    public String getMesto() {
-        return mesto;
+    public String getLocation() {
+        return location;
     }
 
-    public void setMesto(String mesto) {
-        this.mesto = mesto;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getName() {
+        return name;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getOpis() {
-        return opis;
+    public String getDescription() {
+        return description;
     }
 
-    public void setOpis(String opis) {
-        this.opis = opis;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Boolean getAktivna() {
-        return aktivna;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setAktivna(Boolean aktivna) {
-        this.aktivna = aktivna;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Ponuda{ponuda_id=").append(ponuda_id);
-        sb.append(", ponuda_vrsta=").append(ponuda_vrsta);
-        sb.append(", drzava=").append(drzava);
-        sb.append(", mesto=").append(mesto);
-        sb.append(", opis=").append(opis);
-        sb.append(", aktivna=").append(aktivna);
+        sb.append("Offer{offer_id=").append(offer_id);
+        sb.append(", offer_type=").append(offer_type);
+        sb.append(", country=").append(country);
+        sb.append(", location=").append(location);
+        sb.append(", name=").append(name);
+        sb.append(", description=").append(description);
+        sb.append(", active=").append(active);
         sb.append('}');
         return sb.toString();
     }

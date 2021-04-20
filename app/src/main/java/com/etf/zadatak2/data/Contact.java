@@ -3,40 +3,40 @@ package com.etf.zadatak2.data;
 import java.io.Serializable;
 
 
-public class Kontakt implements Serializable {
+public class Contact implements Serializable {
 
-    private int kontakt_id;
-    private String telefon;
+    private int contact_id;
+    private String telephone;
     private String email;
 
-    public Kontakt() {
+    public Contact() {
     }
 
-    public Kontakt(int kontakt_id, String telefon, String email) {
-        this.kontakt_id = kontakt_id;
-        this.telefon = telefon;
+    public Contact(int contact_id, String telephone, String email) {
+        this.contact_id = contact_id;
+        this.telephone = telephone;
         this.email = email;
     }
 
-    public Kontakt(String telefon, String email) {
-        this.telefon = telefon;
+    public Contact(String telephone, String email) {
+        this.telephone = telephone;
         this.email = email;
     }
 
-    public int getKontakt_id() {
-        return kontakt_id;
+    public int getContact_id() {
+        return contact_id;
     }
 
-    public void setKontakt_id(int kontakt_id) {
-        this.kontakt_id = kontakt_id;
+    public void setContact_id(int contact_id) {
+        this.contact_id = contact_id;
     }
 
-    public String getTelefon() {
-        return telefon;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setTelefon(String telefon) {
-        this.telefon = telefon;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
     public String getEmail() {
@@ -50,8 +50,8 @@ public class Kontakt implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Kontakt{kontakt_id=").append(kontakt_id);
-        sb.append(", telefon=").append(telefon);
+        sb.append("Contact{contact_id=").append(contact_id);
+        sb.append(", telephone=").append(telephone);
         sb.append(", email=").append(email);
         sb.append('}');
         return sb.toString();

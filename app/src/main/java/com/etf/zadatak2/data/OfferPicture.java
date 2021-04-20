@@ -3,79 +3,79 @@ package com.etf.zadatak2.data;
 import java.io.Serializable;
 
 
-public class PonudaSlika implements Serializable {
+public class OfferPicture implements Serializable {
 
-    private int ponuda_slika_id;
-    private Ponuda ponuda;
-    private String naziv;
-    private String kratak_opis;
-    private Boolean aktivna;
+    private int offer_picture_id;
+    private Offer offer;
+    private String name;
+    private String short_description;
+    private Boolean active;
 
-    public PonudaSlika() {
+    public OfferPicture() {
     }
 
-    public PonudaSlika(int ponuda_slika_id, Ponuda ponuda, String naziv, String kratak_opis, Boolean aktivna) {
-        this.ponuda_slika_id = ponuda_slika_id;
-        this.ponuda = ponuda;
-        this.naziv = naziv;
-        this.kratak_opis = kratak_opis;
-        this.aktivna = aktivna;
+    public OfferPicture(int offer_picture_id, Offer offer, String name, String short_description, Boolean active) {
+        this.offer_picture_id = offer_picture_id;
+        this.offer = offer;
+        this.name = name;
+        this.short_description = short_description;
+        this.active = active;
     }
 
-    public PonudaSlika(Ponuda ponuda, String naziv, String kratak_opis, Boolean aktivna) {
-        this.ponuda = ponuda;
-        this.naziv = naziv;
-        this.kratak_opis = kratak_opis;
-        this.aktivna = aktivna;
+    public OfferPicture(Offer offer, String name, String short_description, Boolean active) {
+        this.offer = offer;
+        this.name = name;
+        this.short_description = short_description;
+        this.active = active;
     }
 
-    public int getPonuda_slika_id() {
-        return ponuda_slika_id;
+    public int getOffer_picture_id() {
+        return offer_picture_id;
     }
 
-    public void setPonuda_slika_id(int ponuda_slika_id) {
-        this.ponuda_slika_id = ponuda_slika_id;
+    public void setOffer_picture_id(int offer_picture_id) {
+        this.offer_picture_id = offer_picture_id;
     }
 
-    public Ponuda getPonuda() {
-        return ponuda;
+    public Offer getOffer() {
+        return offer;
     }
 
-    public void setPonuda(Ponuda ponuda) {
-        this.ponuda = ponuda;
+    public void setOffer(Offer offer) {
+        this.offer = offer;
     }
 
-    public String getNaziv() {
-        return naziv;
+    public String getName() {
+        return name;
     }
 
-    public void setNaziv(String naziv) {
-        this.naziv = naziv;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getKratak_opis() {
-        return kratak_opis;
+    public String getShort_description() {
+        return short_description;
     }
 
-    public void setKratak_opis(String kratak_opis) {
-        this.kratak_opis = kratak_opis;
+    public void setShort_description(String short_description) {
+        this.short_description = short_description;
     }
 
-    public Boolean getAktivna() {
-        return aktivna;
+    public Boolean getActive() {
+        return active;
     }
 
-    public void setAktivna(Boolean aktivna) {
-        this.aktivna = aktivna;
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("PonudaSlika{ponuda_slika_id=").append(ponuda_slika_id);
-        sb.append(", ponuda=").append(ponuda);
-        sb.append(", naziv=").append(naziv);
-        sb.append(", aktivna=").append(aktivna);
+        sb.append("OfferPicture{offer_picture_id=").append(offer_picture_id);
+        sb.append(", offer=").append(offer);
+        sb.append(", name=").append(name);
+        sb.append(", active=").append(active);
         sb.append('}');
         return sb.toString();
     }
