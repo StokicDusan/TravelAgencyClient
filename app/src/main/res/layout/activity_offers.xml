@@ -32,7 +32,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="0dp"
-                app:srcCompat="@drawable/logo" />
+                android:layout_marginStart="0dp"
+                app:srcCompat="@drawable/logo"/>
 
         </LinearLayout>
         <ScrollView
@@ -45,46 +46,47 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/labelDrzave"
+                    android:id="@+id/labelCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="50dp"
                     android:fontFamily="monospace"
                     android:includeFontPadding="false"
-                    android:text="@string/chooseCountry"
+                    android:text="@string/selectCountry"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinnerDrzave"
+                    android:id="@+id/spinnerCountry"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
                     android:paddingLeft="5dp" />
                 <TextView
-                    android:id="@+id/labelGradovi"
+                    android:id="@+id/labelCity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="30dp"
                     android:layout_marginBottom="50dp"
                     android:fontFamily="monospace"
                     android:includeFontPadding="false"
-                    android:text="@string/chooseCity"
+                    android:text="@string/selectCity"
                     android:textAllCaps="false"
                     android:textColor="#040404"
                     android:textSize="18sp" />
 
                 <Spinner
-                    android:id="@+id/spinnerGradovi"
+                    android:id="@+id/spinnerCity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/back"
-                    android:paddingLeft="5dp" />
+                    android:paddingLeft="5dp"
+                    android:paddingStart="5dp" />
 
                 <LinearLayout
-                    android:id="@+id/ponudaScrollView"
+                    android:id="@+id/offerScrollView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" />
