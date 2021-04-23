@@ -3,30 +3,30 @@ package com.etf.zadatak2.data;
 import java.io.Serializable;
 
 
-public class Korisnik implements Serializable {
+public class Customer implements Serializable {
 
     private int customer_id;
-    private Kontakt contact;
-    private Adresa address;
+    private Contact contact;
+    private Address address;
     private String name;
-    private String prezime;
+    private String surname;
 
-    public Korisnik() {
+    public Customer() {
     }
 
-    public Korisnik(int customer_id, Kontakt contact, Adresa address, String name, String prezime) {
+    public Customer(int customer_id, Contact contact, Address address, String name, String surname) {
         this.customer_id = customer_id;
         this.contact = contact;
         this.address = address;
         this.name = name;
-        this.prezime = prezime;
+        this.surname = surname;
     }
 
-    public Korisnik(Kontakt contact, Adresa address, String name, String prezime) {
+    public Customer(Contact contact, Address address, String name, String surname) {
         this.contact = contact;
         this.address = address;
         this.name = name;
-        this.prezime = prezime;
+        this.surname = surname;
     }
 
     public int getCustomer_id() {
@@ -37,19 +37,19 @@ public class Korisnik implements Serializable {
         this.customer_id = customer_id;
     }
 
-    public Kontakt getContact() {
+    public Contact getContact() {
         return contact;
     }
 
-    public void setContact(Kontakt contact) {
+    public void setContact(Contact contact) {
         this.contact = contact;
     }
 
-    public Adresa getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(Adresa address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 
@@ -61,22 +61,22 @@ public class Korisnik implements Serializable {
         this.name = name;
     }
 
-    public String getPrezime() {
-        return prezime;
+    public String getSurname() {
+        return surname;
     }
 
-    public void setPrezime(String prezime) {
-        this.prezime = prezime;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Korisnik{korisnik_id=").append(customer_id);
-        sb.append(", kontakt=").append(contact);
-        sb.append(", adresa=").append(address);
-        sb.append(", ime=").append(name);
-        sb.append(", prezime=").append(prezime);
+        sb.append("Customer{customer_id=").append(customer_id);
+        sb.append(", contact=").append(contact);
+        sb.append(", address=").append(address);
+        sb.append(", name=").append(name);
+        sb.append(", surname=").append(surname);
         sb.append('}');
         return sb.toString();
     }

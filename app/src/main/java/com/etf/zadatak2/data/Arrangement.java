@@ -2,32 +2,32 @@ package com.etf.zadatak2.data;
 
 import java.io.Serializable;
 
-public class Aranzman implements Serializable {
+public class Arrangement implements Serializable {
 
-    private int aranzman_id;
+    private int arrangement_id;
     private Customer customer;
     private Offer offer;
 
-    public Aranzman() {
+    public Arrangement() {
     }
 
-    public Aranzman(int aranzman_id, Customer customer, Offer offer) {
-        this.aranzman_id = aranzman_id;
+    public Arrangement(int arrangement_id, Customer customer, Offer offer) {
+        this.arrangement_id = arrangement_id;
         this.customer = customer;
         this.offer = offer;
     }
 
-    public Aranzman(Customer customer, Offer offer) {
+    public Arrangement(Customer customer, Offer offer) {
         this.customer = customer;
         this.offer = offer;
     }
 
-    public int getAranzman_id() {
-        return aranzman_id;
+    public int getArrangement_id() {
+        return arrangement_id;
     }
 
-    public void setAranzman_id(int aranzman_id) {
-        this.aranzman_id = aranzman_id;
+    public void setArrangement_id(int arrangement_id) {
+        this.arrangement_id = arrangement_id;
     }
 
     public Customer getCustomer() {
@@ -49,7 +49,7 @@ public class Aranzman implements Serializable {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Aranzman{aranzman_id=").append(aranzman_id);
+        sb.append("Arrangement{arrangement_id=").append(arrangement_id);
         sb.append(", customer=").append(customer);
         sb.append(", offer=").append(offer);
         sb.append('}');

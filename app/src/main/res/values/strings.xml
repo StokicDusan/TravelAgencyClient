@@ -1,20 +1,23 @@
 <resources>
-    <string name="app_name">TravelAgencyClient</string>
-    <string name="welcome">Dobrodošli</string>
-    <string name="odabir">Za nastavak odaberite
-    vrstu putovanja na koju želite da idete</string>
-    <string name="odabirPutovanja">Odaberi vrstu putovanja</string>
-    <string name="noPonuda">Nema dostupnih ponuda</string>
-    <string name="errornetwork">Check your internet connection!</string>
-    <string name="odabirDrzave">Odaberite državu u kojoj želite da putujete</string>
-    <string name="odabirGrada">Odaberite grad u koji želite da putujete</string>
-    <string name="naziv">Naziv</string>
-    <string name="foto_galerija">Foto Galerija</string>
-    <string name="opis">Opis</string>
-    <string name="mesto">Mesto</string>
-    <string name="drzava">Drzava</string>
-    <string name="nedostupno">Turisticka ponuda nije dostupna!!</string>
-    <string name="nemaGalerije">Galerija nije pronadjena</string>
-    <string name="nonerrornetwork">Good internet connection</string>
-    <string name="recreate">resetuj konekciju</string>
+    <string name="app_name" translatable="false">TravelAgencyClient</string>
+    <string name="choice">To continue choose
+    what type of trip are you going on</string>
+    <string name="chooseTravel">Choose type of trip</string>
+    <string name="welcome">Welcome</string>
+    <string name="noOffer">No offers available</string>
+    <string name="errorNetwork">Check your internet connection!</string>
+    <string name="selectCountry">Select the country of travel</string>
+    <string name="selectCity">Select the city of travel</string>
+    <string name="chooseCountry">choose country</string>
+    <string name="chooseCity">choose city</string>
+    <string name="name">Name</string>
+    <string name="photoGallery">Photo gallery</string>
+    <string name="description">Description</string>
+    <string name="location">Location</string>
+    <string name="country">Country</string>
+    <string name="unavailable">Offer is not available</string>
+    <string name="noGallery">Gallery not found</string>
+    <string name="emptyGallery">Gallery is empty</string>
+    <string name="nonErrorNetwork">Good internet connection</string>
+    <string name="recreate">Reset connection</string>
 </resources>

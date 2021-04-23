@@ -7,45 +7,49 @@
     android:background="@color/background">
 
     <ImageView
-        android:id="@+id/imageIkonica"
+        android:id="@+id/imageIcon"
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:layout_gravity="center_vertical"
         android:layout_margin="10dp"
-        app:srcCompat="@drawable/icon_destinacija" />
+        app:srcCompat="@drawable/icon_destination" />
 
     <TextView
-        android:id="@+id/textPonuda"
+        android:id="@+id/textOffer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginStart="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginRight="10dp"
-        android:layout_toRightOf="@+id/imageIkonica"
+        android:layout_toRightOf="@+id/imageIcon"
+        android:layout_toEndOf="@+id/imageIcon"
         android:lines="2"
-        android:textSize="18dp" />
+        android:textSize="18sp"/>
 
     <TextView
-        android:id="@+id/textOpis"
+        android:id="@+id/textDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textPonuda"
-        android:layout_alignBottom="@+id/imageIkonica"
+        android:layout_below="@+id/textOffer"
+        android:layout_alignBottom="@+id/imageIcon"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:layout_toRightOf="@+id/imageIkonica"
+        android:layout_toRightOf="@+id/imageIcon"
+        android:layout_toEndOf="@+id/imageIcon"
         android:fadingEdgeLength="18dp"
-        android:requiresFadingEdge="horizontal" />
+        android:requiresFadingEdge="horizontal"/>
 
     <View
-        android:id="@+id/linija"
+        android:id="@+id/line"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_alignBottom="@id/textOpis"
+        android:layout_alignBottom="@id/textDescription"
         android:layout_marginBottom="-10dp"
         android:background="@android:color/darker_gray" />
 

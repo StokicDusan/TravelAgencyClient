@@ -14,7 +14,7 @@ public class ApiClient {
     private static ApiInterface apiInterface = null;
 
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .connectTimeout(2, TimeUnit.MINUTES)
+            .connectTimeout(1, TimeUnit.MINUTES)
             .readTimeout(30, TimeUnit.SECONDS)
             .writeTimeout(30, TimeUnit.SECONDS)
             .build();

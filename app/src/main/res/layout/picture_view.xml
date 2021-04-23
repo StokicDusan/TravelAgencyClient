@@ -8,7 +8,7 @@
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/imageViewSlika"
+        android:id="@+id/imageViewPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -20,18 +20,20 @@
         app:srcCompat="@drawable/image_001" />
 
     <TextView
-        android:id="@+id/textSlika"
+        android:id="@+id/textPicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/imageViewSlika"
-        android:layout_alignLeft="@id/imageViewSlika"
-        android:layout_alignRight="@id/imageViewSlika"
+        android:layout_below="@id/imageViewPicture"
+        android:layout_alignLeft="@id/imageViewPicture"
+        android:layout_alignRight="@id/imageViewPicture"
+        android:layout_alignStart="@id/imageViewPicture"
+        android:layout_alignEnd="@id/imageViewPicture"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
         android:gravity="center_horizontal"
         android:lines="2"
         android:maxLines="2"
         android:text="TextView"
-        android:textSize="18sp" />
+        android:textSize="18sp"/>
 
 </RelativeLayout>

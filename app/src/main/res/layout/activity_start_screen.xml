@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:padding="15dp"
-    tools:context=".activity.PocetniEkran">
+    tools:context=".activity.StartScreenActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/labelPozdrav"
+                android:id="@+id/labelGreeting"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"
@@ -33,7 +33,7 @@
                 android:textStyle="bold|italic" />
 
             <TextView
-                android:id="@+id/labelOdabir"
+                android:id="@+id/labelChoice"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="30dp"
@@ -48,15 +48,16 @@
                 android:textStyle="bold|italic" />
 
             <Spinner
-                android:id="@+id/spinnerVrste"
+                android:id="@+id/spinnerType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@drawable/back"
-                android:paddingLeft="5dp" />
+                android:paddingLeft="5dp"
+                android:paddingStart="5dp" />
 
             <Button
-                android:id="@+id/buttonSacuvaj"
+                android:id="@+id/buttonSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"

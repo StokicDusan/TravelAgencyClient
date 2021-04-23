@@ -12,9 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelAgencyClient"
         android:usesCleartextTraffic="true">
-        <activity android:name="com.etf.zadatak2.activity.DetaljiPonudeActivity" />
-        <activity android:name="com.etf.zadatak2.activity.PonudeActivity" />
-        <activity android:name="com.etf.zadatak2.activity.PocetniEkran">
+        <activity android:name="com.etf.zadatak2.activity.OfferDetailsActivity" />
+        <activity android:name="com.etf.zadatak2.activity.OffersActivity" />
+        <activity android:name="com.etf.zadatak2.activity.StartScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

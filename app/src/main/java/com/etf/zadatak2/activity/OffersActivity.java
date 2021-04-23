@@ -35,27 +35,27 @@ import retrofit2.Response;
 
 import static android.R.layout.simple_spinner_dropdown_item;
 
-public class PonudeActivity extends AppCompatActivity {
+public class OffersActivity extends AppCompatActivity {
     private static final int request_code = 5;
 
     ApiInterface apiInterface;
-    private ArrayList<String> listaPonudaDrzave;
-    private ArrayList<String> listaPonudaGradovi;
-    private ArrayList<Offer> listaOffer;
-    private ArrayList<Offer> listaZaPrikaz;
-    private Spinner ponudaGradovi;
-    private Spinner ponudaDrzave;
+    private ArrayList<String> listOfferCountry;
+    private ArrayList<String> listOfferCity;
+    private ArrayList<Offer> listOffer;
+    private ArrayList<Offer> listForView;
+    private Spinner offerCity;
+    private Spinner offerCountry;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ponude);
-        listaZaPrikaz = new ArrayList<>();
-        listaOffer = new ArrayList<>();
-        listaPonudaDrzave = new ArrayList<>();
-        listaPonudaGradovi = new ArrayList<>();
-        listaPonudaDrzave.add("izaberite drzavu");
-        listaPonudaGradovi.add("izaberite grad");
+        setContentView(R.layout.activity_offers);
+        listForView = new ArrayList<>();
+        listOffer = new ArrayList<>();
+        listOfferCountry = new ArrayList<>();
+        listOfferCity = new ArrayList<>();
+        listOfferCountry.add(getString(R.string.chooseCountry));
+        listOfferCity.add(getString(R.string.chooseCity));
 
         initComponents();
     }
@@ -63,45 +63,45 @@ public class PonudeActivity extends AppCompatActivity {
     private void initComponents() {
         apiInterface = ApiClient.getClient(ApiInterface.class);
 
-        //prihvatanje konkretne vrste ponude
+        //Getting specific type of offer
         Bundle extr = getIntent().getExtras();
-        String ponuda = null;
-        if (extr != null) ponuda = extr.getString("ponuda");
+        String offer = null;
+        if (extr != null) offer = extr.getString("offer");
 
-        ponudaDrzave = (Spinner) findViewById(R.id.spinnerDrzave);
-        ponudaGradovi = (Spinner) findViewById(R.id.spinnerGradovi);
+        offerCountry = (Spinner) findViewById(R.id.spinnerCountry);
+        offerCity = (Spinner) findViewById(R.id.spinnerCity);
 
-        ArrayAdapter<String> adapterPonudaDrzave = new ArrayAdapter<String>(this,
-                simple_spinner_dropdown_item, listaPonudaDrzave);
-        ArrayAdapter<String> adapterPonudaGradovi = new ArrayAdapter<String>(this,
-                simple_spinner_dropdown_item, listaPonudaGradovi);
-        ponudaDrzave.setAdapter(adapterPonudaDrzave);
-        ponudaGradovi.setAdapter(adapterPonudaGradovi);
+        ArrayAdapter<String> adapterOfferCountry = new ArrayAdapter<String>(this,
+                simple_spinner_dropdown_item, listOfferCountry);
+        ArrayAdapter<String> adapterOfferCity = new ArrayAdapter<String>(this,
+                simple_spinner_dropdown_item, listOfferCity);
+        offerCountry.setAdapter(adapterOfferCountry);
+        offerCity.setAdapter(adapterOfferCity);
 
-        getPonuda(ponuda);
+        getOffer(offer);
 
         ((ImageButton) findViewById(R.id.imageButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(PonudeActivity.this, StartScreenActivity.class);
+                Intent i = new Intent(OffersActivity.this, StartScreenActivity.class);
                 startActivity(i);
             }
         });
 
 
-        // Inflejtovanje Gradova u odnosu na Drzavu koja je izabrana
-        ponudaDrzave.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // Inflating Cities depending on the selected country
+        offerCountry.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 0) {
-                    listaPonudaGradovi.clear();
-                    listaPonudaGradovi.add("izaberite grad");
-                    ponudaGradovi.setSelection(0);
+                    listOfferCity.clear();
+                    listOfferCity.add(getString(R.string.chooseCity));
+                    offerCity.setSelection(0);
                     String selectedItemText = (String) parent.getItemAtPosition(position);
-                    for (Offer temp : listaOffer) {
+                    for (Offer temp : listOffer) {
                         if (selectedItemText.equals(temp.getCountry())) {
-                            if (!listaPonudaGradovi.contains(temp.getLocation())) {
-                                listaPonudaGradovi.add(temp.getLocation());
+                            if (!listOfferCity.contains(temp.getLocation())) {
+                                listOfferCity.add(temp.getLocation());
                             }
                         }
                     }
@@ -110,12 +110,12 @@ public class PonudeActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                ponudaDrzave.setSelection(0);
+                offerCountry.setSelection(0);
             }
         });
 
-        // Inflejtovanje Offer u odnosu na Grad koji je izabran
-        ponudaGradovi.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        // Inflating Offer depending on the selected city
+        offerCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (position > 0) {
@@ -127,7 +127,7 @@ public class PonudeActivity extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                ponudaGradovi.setSelection(0);
+                offerCity.setSelection(0);
                 //doInflate(null);
 
             }
@@ -135,9 +135,9 @@ public class PonudeActivity extends AppCompatActivity {
     }
 
 
-    private void getPonuda(String ponuda) {
-        Call<List<Offer>> callLanguage = apiInterface.getOfferByType(ponuda);
-        final Dialog dialog = LoadDialog.loadDialog(PonudeActivity.this);
+    private void getOffer(String offer) {
+        Call<List<Offer>> callLanguage = apiInterface.getOfferByType(offer);
+        final Dialog dialog = LoadDialog.loadDialog(OffersActivity.this);
         dialog.show();
         callLanguage.enqueue(new Callback<List<Offer>>() {
             @Override
@@ -145,11 +145,11 @@ public class PonudeActivity extends AppCompatActivity {
                 if (dialog.isShowing()) dialog.dismiss();
                 if (response.code() == HttpURLConnection.HTTP_OK && response.body() != null) {
                     for (Offer temp : response.body()) {
-                        if (!listaPonudaDrzave.contains(temp.getCountry())) {
-                            listaPonudaDrzave.add(temp.getCountry());
+                        if (!listOfferCountry.contains(temp.getCountry())) {
+                            listOfferCountry.add(temp.getCountry());
                         }
-                        if (!listaOffer.contains(temp)) {
-                            listaOffer.add(temp);
+                        if (!listOffer.contains(temp)) {
+                            listOffer.add(temp);
                         }
                     }
                 }
@@ -158,7 +158,7 @@ public class PonudeActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Offer>> call, Throwable t) {
                 t.printStackTrace();
-                Toast.makeText(PonudeActivity.this, R.string.errorNetwork, Toast.LENGTH_SHORT).show();
+                Toast.makeText(OffersActivity.this, R.string.errorNetwork, Toast.LENGTH_SHORT).show();
                 if (dialog.isShowing())
                     dialog.dismiss();
             }
@@ -166,34 +166,33 @@ public class PonudeActivity extends AppCompatActivity {
     }
 
 
-    private void doInflate(String mesto) {
-        listaZaPrikaz.clear();
-        LinearLayout mainScrollLayout = findViewById(R.id.ponudaScrollView);
+    private void doInflate(String location) {
+        listForView.clear();
+        LinearLayout mainScrollLayout = findViewById(R.id.offerScrollView);
         mainScrollLayout.removeAllViews();
 
-        if (mesto != null) {
-            for (Offer offer : listaOffer) {
-                if (offer.getLocation().equals(mesto)) listaZaPrikaz.add(offer);
+        if (location != null) {
+            for (Offer offer : listOffer) {
+                if (offer.getLocation().equals(location)) listForView.add(offer);
             }
         }
 
-        for (final Offer offer : listaZaPrikaz) {
-            //RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.my_view, null);
+        for (final Offer offer : listForView) {
             int id = offer.getOffer_id();
 
             LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.ponuda_view, mainScrollLayout, false);
+            RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.offer_view, mainScrollLayout, false);
 
-            String naslov = offer.getLocation() + " - " + offer.getName();
-            ((TextView) item.findViewById(R.id.textPonuda)).setText(naslov);
+            String name = offer.getLocation() + " - " + offer.getName();
+            ((TextView) item.findViewById(R.id.textOffer)).setText(name);
             if (offer.getActive()) {
-                ((TextView) item.findViewById(R.id.textOpis)).setText(offer.getDescription());
+                ((TextView) item.findViewById(R.id.textDescription)).setText(offer.getDescription());
                 item.setClickable(true);
                 final int finalId = id;
                 item.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent i = new Intent(PonudeActivity.this, DetaljiPonudeActivity.class);
+                        Intent i = new Intent(OffersActivity.this, OfferDetailsActivity.class);
                         Bundle extra = new Bundle();
                         extra.putInt("id", finalId);
                         i.putExtras(extra);
@@ -202,8 +201,8 @@ public class PonudeActivity extends AppCompatActivity {
                     }
                 });
             } else {
-                ((TextView) item.findViewById(R.id.textOpis)).setText(R.string.unavailable);
-                ((TextView) item.findViewById(R.id.textOpis)).setTextColor(Color.RED);
+                ((TextView) item.findViewById(R.id.textDescription)).setText(R.string.unavailable);
+                ((TextView) item.findViewById(R.id.textDescription)).setTextColor(Color.RED);
             }
             mainScrollLayout.addView(item);
         }
@@ -215,12 +214,12 @@ public class PonudeActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if ((requestCode == request_code) &&
                 (resultCode == RESULT_OK)) {
-            listaPonudaGradovi.clear();
-            listaOffer.clear();
-            listaZaPrikaz.clear();
-            ponudaDrzave.setSelection(0);
-            listaPonudaGradovi.add("izaberite grad");
-            ponudaGradovi.setSelection(0);
+            listOfferCity.clear();
+            listOffer.clear();
+            listForView.clear();
+            offerCountry.setSelection(0);
+            listOfferCity.add(getString(R.string.chooseCity));
+            offerCity.setSelection(0);
             initComponents();
         }
 
