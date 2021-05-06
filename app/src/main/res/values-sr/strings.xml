@@ -1,0 +1,22 @@
+<resources>
+    <string name="welcome">Dobrodošli</string>
+    <string name="choice">Za nastavak odaberite
+    vrstu putovanja na koju želite da idete</string>
+    <string name="chooseTravel">Odaberi vrstu putovanja</string>
+    <string name="noOffer">Nema dostupnih offer</string>
+    <string name="errorNetwork">Proverite internet konekciju!</string>
+    <string name="selectCountry">Odaberite državu u kojoj želite da putujete</string>
+    <string name="selectCity">Odaberite grad u koji želite da putujete</string>
+    <string name="chooseCountry">izaberite drzavu</string>
+    <string name="chooseCity">izaberite grad</string>
+    <string name="name">Naziv</string>
+    <string name="photoGallery">Foto Galerija</string>
+    <string name="description">Opis</string>
+    <string name="location">Mesto</string>
+    <string name="country">Drzava</string>
+    <string name="unavailable">Turisticka offer nije dostupna!!</string>
+    <string name="noGallery">Galerija nije pronadjena</string>
+    <string name="emptyGallery">Galerija je prazna</string>
+    <string name="nonErrorNetwork">Dobra internet konekcija</string>
+    <string name="recreate">Resetuj konekciju</string>
+</resources>
