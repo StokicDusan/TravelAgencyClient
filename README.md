@@ -1,3 +1,3 @@
 # TravelAgencyClient
 
-Example of a client side of an application for a travel agency for Android
+Example of a client side of an application for Android for a travel agency
